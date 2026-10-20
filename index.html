@@ -204,7 +204,20 @@ $('videoFile').addEventListener('change',e=>{const f=e.target.files[0];if(f)$('v
 $('audioFile').addEventListener('change',e=>{const f=e.target.files[0];if(f){$('audio').src=URL.createObjectURL(f);$('musicBtn').textContent='♫ play our song'}});
 $('musicBtn').addEventListener('click',async()=>{if(!$('audio').src){$('audioFile').click();return}if($('audio').paused){try{await $('audio').play();$('musicBtn').textContent='♫ pause our song'}catch{}}else{$('audio').pause();$('musicBtn').textContent='♫ play our song'}});
 $('resetBtn').addEventListener('click',()=>{if(confirm('Clear saved edits and restore the original starter text and colors?')){try{localStorage.removeItem(SAVE_KEY)}catch(e){}location.reload()}});
-// Typewriter intro and scroll reveals.
+const mediaBase = 'sarika_anniversary_website%20special/';
+const images = [
+  'heart-sarika-beloved.png',
+  'heart-stares-into-soul.png',
+  'tongue-filter-selfie.jpeg',
+  'puppy-filter-selfie.jpeg',
+  'mirror-outfit.png',
+  'portrait-bangs.png'
+];
+images.forEach((file, i) => {
+  $('img' + (i + 1)).src = mediaBase + 'assets/' + file;
+});
+$('video').src = mediaBase + 'sarika_anniversary_cinematic_crop.mp4';
+$('audio').src = '07%20Self%20Control-%5BAudioTrimmer.com%5D.mp3';// Typewriter intro and scroll reveals.
 window.addEventListener('load',()=>{const el=$('typed'),txt='Sarika';el.textContent='';let i=0;const tick=()=>{if(i<txt.length){el.textContent+=txt[i++];setTimeout(tick,190)}};tick();sync()});
 const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ob.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
 // Export a self-contained HTML preview with current editable text and colors. Existing media stays in the package ZIP.
