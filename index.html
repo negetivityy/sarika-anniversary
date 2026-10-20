@@ -217,7 +217,7 @@ images.forEach((file, i) => {
   $('img' + (i + 1)).src = mediaBase + 'assets/' + file;
 });
 $('video').src = mediaBase + 'sarika_anniversary_cinematic_crop.mp4';
-$('audio').src = '07%20Self%20Control-%5BAudioTrimmer.com%5D.mp3';// Typewriter intro and scroll reveals.
+$('audio').src = '/sarika-anniversary/07%20Self%20Control-%5BAudioTrimmer.com%5D.mp3';// Typewriter intro and scroll reveals.
 window.addEventListener('load',()=>{const el=$('typed'),txt='Sarika';el.textContent='';let i=0;const tick=()=>{if(i<txt.length){el.textContent+=txt[i++];setTimeout(tick,190)}};tick();sync()});
 const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ob.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
 // Export a self-contained HTML preview with current editable text and colors. Existing media stays in the package ZIP.
